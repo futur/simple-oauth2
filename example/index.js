@@ -33,7 +33,8 @@ app.get('/auth', (req, res) => {
 app.get('/callback', (req, res) => {
   const code = req.query.code;
   const options = {
-    code,
+    code:code,
+    redirect_uri: 'http://localhost:3000/callback'
   };
 
   oauth2.authorizationCode.getToken(options, (error, result) => {
